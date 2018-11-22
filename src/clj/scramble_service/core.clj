@@ -1,7 +1,16 @@
 (ns scramble-service.core
+  (:require 
+   [ring.adapter.jetty :as jetty]
+   [scramble-service.handler :refer [app]])
   (:gen-class))
 
+(comment
+  (def server (jetty/run-jetty #'app {:port 3000 :join? false}))
+  (.stop server)
+  )
+
+
+
 (defn -main
-  "I don't do a whole lot ... yet."
   [& args]
-  (println "Hello, World!"))
+  (jetty/run-jetty app {:port 3000 :join? false}))
