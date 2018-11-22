@@ -1,0 +1,10 @@
+{:jvm-opts ["-Xmx1000m" "-Xmx1000m"]
+ :source-paths ["src/cljs" "src/cljc"]
+ :dependencies [[reagent "0.8.1"]]
+ :builds {:app
+          {:output-dir "resources/public/js/compiled"
+           :asset-path "/js/compiled"
+           :target :browser
+           :modules {:main {:entries [scramble-service.core]}}
+           :devtools {:autoload true
+                      :after-load scramble-service.core/mount-root}}}}

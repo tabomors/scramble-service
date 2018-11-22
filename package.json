@@ -1,0 +1,28 @@
+{
+  "name": "scramble-service",
+  "version": "1.0.0",
+  "description": "FIXME: description",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabomors/scramble-service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tabomors/scramble-service/issues"
+  },
+  "homepage": "https://github.com/tabomors/scramble-service#readme",
+  "dependencies": {
+    "create-react-class": "^15.6.3",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  }
+}
