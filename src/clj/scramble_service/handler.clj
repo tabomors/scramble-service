@@ -11,10 +11,15 @@
   [req]
   (middleware.resource/resource-request req home-page-path))
 
+(defmethod router "/status"
+  [req]
+  {:status 200
+   :body "Scramble service is up"})
+
 (defmethod router "/scramble"
   [req]
-  (let [str1 (get-in req [:query-params "str1"])
-        str2 (get-in req [:query-params "str2"])
+  (let [str1 (get-in req [:query-params "str-1"])
+        str2 (get-in req [:query-params "str-2"])
         res  (scramble? str1 str2)]
    {:status 200
     :headers {"Content-Type" "application/json"}
@@ -27,5 +32,7 @@
    :body "<h1>Not found</h1>"})
 
 (defn app [req]
-  ((middleware.resource/wrap-resource (middleware.params/wrap-params router) "public") req))
-
+  (let [router' (-> router
+                    middleware.params/wrap-params
+                    (middleware.resource/wrap-resource "public"))]
+  (router' req)))
